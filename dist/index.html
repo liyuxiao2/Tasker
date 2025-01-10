@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h1>Tasker</h1>
+            <div class="menu" id = "menu">
+                <div class="menu-item" id = "home">Home</div>
+                <div class="menu-item" id = "all-tasks">All Tasks</div>
+                <div class="menu-item" id = "completed">Completed</div>
+                <h2>My Projects</h2>
+                <div class="menu-item">Personal</div>
+                <button class ="add" data-modal = "project-modal">+ Project</button>
+                <dialog id = "project-modal">
+                    <form class = "forms" id = "form1">
+                        <label for = "title"> Title </label>
+                        <input type = "text" id = "title" name = "title" required>
+                        <div>
+                            <button id="confirmBtn" type = "submit"  value="default">Confirm</button>
+                            <button id = "closeBtn" type = "button"> Close </button>
+                        </div>
+                    </form>
+                </dialog>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <header>
+                <h2>All Tasks</h2>
+                <button class="add" data-modal="task-modal">+ Add a Task</button>
+                <dialog id = "task-modal">
+                    <form class = "forms" id = "form2">
+                        <label for = "title"> Title </label>
+                        <input type = "text" id = "title" name = "title" required>
+            
+                        <label for = "description"> Description </label>
+                        <input type = "text" id = "description" name = "description" required>
+            
+                        <label for = "dueDate"> Due Date </label>
+                        <input type = "date" id = "dueDate" name = "dueDate" required>
+            
+                        <p> Priority </p>
+
+                        <div class = "radio-group">
+                            <label for = "high"> high </label>
+                            <input type = "radio" id = "high" name = "val" value = 1>
+                
+                            <label for = "medium"> medium </label>
+                            <input type = "radio" id = "medium" name = "val" value = 2>
+
+                            <label for = "low"> low </label>
+                            <input type = "radio" id = "low" name = "val" value = 3>
+                        </div>
+
+                        <div>
+                            <button id="confirmBtn" type = "submit"  value="default">Confirm</button>
+                            <button id ="closeBtn" type = "button"> Close </button>
+                        </div>
+                    </form>
+                </dialog>
+            </header>
+            <div class="task-list">
+                <!-- Task items will go here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
