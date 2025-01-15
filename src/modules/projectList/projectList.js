@@ -1,9 +1,8 @@
-import project from "../project/project";
+
 
 export default class ProjectList {
     // Static array to hold all projects
     static projects = [];
-    static counter = 1;
 
     // Method to add a new project
     static addProject(project) {
@@ -12,7 +11,7 @@ export default class ProjectList {
         }
 
         this.projects.push(project);
-        this.counter += 1;
+        console.log(this.projects.length);
     }
 
     // Method to remove a project by name
@@ -23,8 +22,6 @@ export default class ProjectList {
         if (this.projects.length === initialLength) {
             throw new Error(`No project found with the name "${projectName}".`);
         }
-
-        this.counter -= 1;
     }
 
     // Method to retrieve all projects
@@ -34,16 +31,17 @@ export default class ProjectList {
 
     // Method to find a project by name
     static findProjectById(projectId) {
-        const project = this.projects.find(project => project.Id === projectId);
+        const project = this.projects.find(project => project.getId() === parseInt(projectId));
 
         if (!project) {
-            throw new Error(`No project found with the name "${projectName}".`);
+            console.error(`Project with ID ${projectId} not found.`);
+            return null; // Explicitly return null if not found
         }
 
         return project;
     }
 
     static getCount(){
-        return this.counter;
+        return this.projects.length;
     }
 }

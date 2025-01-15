@@ -1,3 +1,5 @@
+import toDoItem from "../todoItem/toDoItem";
+
 export default class toDoList{
     constructor(){
         this.listOfToDo = [];
@@ -5,7 +7,7 @@ export default class toDoList{
     }
 
     addToDo(newToDo){
-        if (!(newToDo instanceof ToDoItem)) {
+        if (!(newToDo instanceof toDoItem)) {
             throw new TypeError('Parameter must be of type ToDoItem');
         }
         this.listOfToDo.push(newToDo);
@@ -23,5 +25,9 @@ export default class toDoList{
 
     getCount(){
         return this.counter;
+    }
+
+    getList(){
+        return this.listOfToDo;
     }
 }

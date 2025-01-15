@@ -7,4 +7,16 @@ export default class project{
 
         this.toDoList = new toDoList();
     }
+
+    getName(){
+        return this.name;
+    }
+
+    getList(){
+        return this.toDoList;
+    }
+
+    getId(){
+        return this.id;
+    }
 }

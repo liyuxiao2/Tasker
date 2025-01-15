@@ -6,7 +6,7 @@
     <title>To-Do List</title>
 </head>
 <body>
-    <div class="container">
+    <div id = "container">
         <!-- Sidebar -->
         <div class="sidebar">
             <h1>Tasker</h1>
@@ -14,8 +14,9 @@
                 <div class="menu-item" id = "home">Home</div>
                 <div class="menu-item" id = "all-tasks">All Tasks</div>
                 <div class="menu-item" id = "completed">Completed</div>
-                <h2>My Projects</h2>
-                <div class="menu-item">Personal</div>
+                <h2 id = "proj-list">
+                    My Projects
+                </h2>
                 <button class ="add" data-modal = "project-modal">+ Project</button>
                 <dialog id = "project-modal">
                     <form class = "forms" id = "form1">
@@ -34,9 +35,10 @@
         <div class="main">
             <header>
                 <h2>All Tasks</h2>
-                <button class="add" data-modal="task-modal">+ Add a Task</button>
+                <button class="add" data-modal="task-modal" data-project-id = "">+ Add a Task</button>
                 <dialog id = "task-modal">
                     <form class = "forms" id = "form2">
+                        <input type="hidden" id="project-id" name="projectId" value="">
                         <label for = "title"> Title </label>
                         <input type = "text" id = "title" name = "title" required>
             
@@ -66,7 +68,7 @@
                     </form>
                 </dialog>
             </header>
-            <div class="task-list">
+            <div id ="task-list">
                 <!-- Task items will go here -->
             </div>
         </div>
