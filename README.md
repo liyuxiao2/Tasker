@@ -6,6 +6,8 @@
 </head>
 <body>
     <h1>Tasker: Task Management Application</h1>
+
+<h2> View it at https://liyuxiao2.github.io/Tasker/ </h2>
     <p>
         Tasker is a modern web application designed to manage tasks efficiently. 
         It allows users to create, view, update, and delete tasks, organized by projects and due dates, 
