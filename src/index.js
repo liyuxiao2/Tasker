@@ -2,7 +2,7 @@ import "./styles.css";
 
 import"./dom";
 
-import "./modules/functionality"
+import "./modules/functionality/functionality";
 
 import "./storage";
 
