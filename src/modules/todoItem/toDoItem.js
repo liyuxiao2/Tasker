@@ -1,10 +1,11 @@
 export default class toDoItem{
-    constructor(title, description, dueDate, priority, id){
+    constructor(title, description, dueDate, priority, id, completed = false){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
         this.id = id;
+        this.completed = completed;
     }
 
     //Edit a todo’s details.
@@ -24,6 +25,10 @@ export default class toDoItem{
         this.priority = newPriority;
     }
 
+    editCompleted(){
+        this.completed = !this.completed;
+    }
+    
     get Id(){
         return this.id;
     }

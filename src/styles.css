@@ -4,7 +4,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    background-color: #333;
+    background-repeat: inherit;
 }
+
 
 /* Layout */
 #container {
@@ -214,4 +217,80 @@ dialog {
 
 #closeBtn:hover {
     background-color: #c0392b;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add space between child elements */
+    border: 1px solid #555;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.task-container:hover {
+    background-color: #3a3a3a;
+    transform: translateY(-5px);
+}
+
+.task-container h2 {
+    font-size: 1.3em;
+    margin: 0;
+    color: #4CAF50;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.task-container p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.task-container p span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+
+/* Checkbox Container */
+.task-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #4CAF50; /* Green accent for checkbox */
+    margin-right: 10px;
+}
+
+/* Label for Completed Checkbox */
+.task-container label {
+    font-size: 0.9em;
+    color: #ddd;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Checkbox Hover Effect */
+.task-container input[type="checkbox"]:hover {
+    outline: 2px solid #4CAF50;
+}
+
+/* Checked Checkbox Effect */
+.task-container input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Checkbox Alignment */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
