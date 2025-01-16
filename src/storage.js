@@ -1,7 +1,7 @@
 import ProjectList from "./modules/projectList/projectList";
 import Project from "./modules/project/project";
 import toDoItem from "./modules/todoItem/toDoItem";
-import { appendTaskToUI } from "./dom";
+import { addProjectToUI } from "./modules/functionality/functionality";
 
 export function saveToLocalStorage() {
     const projects = ProjectList.getAllProjects().map((project) => {
@@ -25,6 +25,8 @@ export function loadFromLocalStorage() {
     projects.forEach((projectData) => {
         const project = new Project(projectData.name, projectData.id);
 
+        if (!projectData || projectData.id === 0) return;
+
         // Iterate through tasks in the project's toDoList
         projectData.toDoList.forEach((taskData) => {
             const task = new toDoItem(
@@ -43,36 +45,6 @@ export function loadFromLocalStorage() {
     });
 }
 
-
-export function addProjectToUI(project) {
-    const newProject = document.createElement("div");
-
-    newProject.className = "menu-item";
-    newProject.textContent = project.getName();
-    newProject.setAttribute("data-project-id", project.getId());
-
-    newProject.addEventListener("click", (e) => {
-        const selectedProjectId = e.target.getAttribute("data-project-id");
-        const selectedProject = ProjectList.findProjectById(selectedProjectId);
-
-        const taskContainer = document.getElementById("task-list");
-        taskContainer.innerHTML = "";
-
-        if (!selectedProject) {
-            console.error("Project not found or undefined for ID:", selectedProjectId);
-            return;
-        }
-
-        selectedProject.getList().getList().forEach((task) => {
-            appendTaskToUI(task);
-        });
-
-        document.getElementById("project-id").value = selectedProjectId;
-    });
-
-    const allProjects = document.getElementById("proj-list");
-    allProjects.appendChild(newProject);
-}
 
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -4,15 +4,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background-repeat: inherit;
 }
 
 
 /* Layout */
 #container {
     display: flex;
-    height: 100vh;
-    background-color: #333;
+    min-height: 110vh;
+    background: linear-gradient(to bottom, #333 95%, #444 5%);
+    background-size: 100% 20px; /* Adjust the size to control the repetition */
+    overflow: 3;
 }
 
 /* Sidebar */
@@ -41,16 +42,14 @@
     transition: transform 0.2s ease-out;
 }
 
-button{
+button {
     transition: transform 0.2s ease-out;
 }
 
 .menu-item:hover,
-button:hover
-{
+button:hover {
     transform: scale(1.05);
 }
-
 
 .menu-item:hover {
     background-color: #555;
@@ -97,7 +96,9 @@ header h2 {
 }
 
 .task-list {
-    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between grid items */
     background-color: #2a2a2a;
     padding: 20px;
     border-radius: 5px;
@@ -219,12 +220,12 @@ dialog {
 }
 
 .task-container {
+    position: relative; /* Set relative positioning to make it the reference for the delete button */
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Add space between child elements */
+    gap: 10px;
     border: 1px solid #555;
     padding: 20px;
-    margin: 15px 0;
     border-radius: 10px;
     background-color: #2e2e2e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -292,4 +293,57 @@ dialog {
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+/* Project Delete Button */
+.menu-item {
+    display: flex;
+    justify-content: space-between; /* Push content to edges */
+    align-items: center; /* Center items vertically */
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+}
+
+.delete-project {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-project:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+
+.delete-task {
+    position: absolute; /* Position the delete button relative to the task container */
+    top: 10px; /* Adjust the distance from the top edge */
+    right: 10px; /* Adjust the distance from the right edge */
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 20%; /* Make the button circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-task:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
 }

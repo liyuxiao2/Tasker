@@ -16,10 +16,8 @@ export default class toDoList{
         return this.listOfToDo.find((element) => element.id === parseInt(toDoId));
     }
 
-    
-
-    removeElement(toDoId){
-        this.listOfToDo = this.listOfToDo.filter((element) => !this.findId(element, toDoId));
+    removeElement(toDoId) {
+        this.listOfToDo = this.listOfToDo.filter((element) => element.id !== parseInt(toDoId));
     }
 
     getCount(){

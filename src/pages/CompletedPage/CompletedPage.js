@@ -1,4 +1,4 @@
-import { appendTaskToUI } from "../../dom";
+import { appendTaskToUI } from "../../modules/functionality/functionality";
 import ProjectList from "../../modules/projectList/projectList";
 
 export default function loadCompleted() {

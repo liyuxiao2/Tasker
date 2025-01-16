@@ -1,7 +1,13 @@
+import project from "../project/project";
+
 export default class ProjectList {
     // Static array to hold all projects
     static projects = [];
 
+    static initialize(){
+        const allTasksProject = new project("allTasks", 0);
+        ProjectList.addProject(allTasksProject);
+    }
     // Method to add a new project
     static addProject(project) {
         if (!project || !project.name) {
@@ -22,4 +28,12 @@ export default class ProjectList {
     static getCount() {
         return ProjectList.projects.length;
     }
+
+    static removeProject(projectId) {
+        ProjectList.projects = ProjectList.projects.filter(project => project.getId() !== parseInt(projectId));
+    }
+
+
 }
+
+ProjectList.initialize();
