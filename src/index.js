@@ -2,11 +2,15 @@ import "./styles.css";
 
 import"./dom";
 
+import "./modules/functionality"
+
 import "./storage";
 
 import loadAllTasks from "./pages/allTasksPage/allTasks";
 
 import loadCompleted from "./pages/CompletedPage/CompletedPage";
+
+
 
 const content = document.getElementById("task-list");
 
